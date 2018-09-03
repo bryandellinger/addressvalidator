@@ -1,0 +1,38 @@
+{
+  "name": "addressvalidator",
+  "version": "1.0.0",
+  "description": "use google api to validate address",
+  "private": true,
+  "scripts": {
+    "dev": "lite-server",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bryandellinger/addressvalidator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bryandellinger/addressvalidator/issues"
+  },
+  "homepage": "https://github.com/bryandellinger/addressvalidator#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "handlebars": "^4.0.11",
+    "handlebars-loader": "^1.7.0",
+    "jquery": "^3.3.1",
+    "lite-server": "^2.4.0",
+    "lodash": "^4.17.10",
+    "popper.js": "^1.14.4"
+  }
+}
