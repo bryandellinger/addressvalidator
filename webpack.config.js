@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
@@ -8,6 +9,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
     },
     devtool: 'inline-source-map',
   plugins: [
+    new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery'
+      }),
      new CleanWebpackPlugin(['dist']), 
      new HtmlWebpackPlugin({
        title: 'Address Validation'
