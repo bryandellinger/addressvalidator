@@ -11,7 +11,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
   plugins: [
     new webpack.ProvidePlugin({
         $: 'jquery',
-        jQuery: 'jquery'
+        jQuery: 'jquery',
       }),
      new CleanWebpackPlugin(['dist']), 
      new HtmlWebpackPlugin({
