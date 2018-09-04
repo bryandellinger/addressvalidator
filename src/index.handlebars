@@ -1,5 +1,7 @@
 
 <h4 class="text-center">Enter a location name and an address and click submit to validate your address.</h4>
+<div class="row">
+ <div class="col">
 <form class="col-12" id="form"  method="post" action="#">
       <div class="form-group">
         <label for="name">Name</label>
@@ -13,6 +15,47 @@
          <button type="submit" class="btn btn-default">Submit</button>
       </div>
     </form> 
-
+</div>
+<div class="col">
+  <div class="form col-12">
+    <div class="form-group">
+        <label for="name">Formatted Address</label>
+       <textarea  class="form-control address" id="formattedAddress" rows="2" name="formattedAddress" disabled placeholder="enter address and click submit"/>
+      </div>
+    <div class="form-group">
+        <label for="name">Street Number</label>
+        <input type="text" disabled class="form-control address" id="streetnumber" name="streetnumber" placeholder="enter address and click submit">
+      </div>
+      <div class="form-group">
+        <label for="route">Route</label>
+        <input type="text" disabled class="form-control address" id="route" name="route" placeholder="enter address and click submit">
+      </div>
+       <div class="form-group">
+        <label for="locality">Locality</label>
+        <input type="text" disabled class="form-control address" id="locality" name="locality" placeholder="enter address and click submit">
+      </div>
+      <div class="form-group">
+        <label for="state">State</label>
+        <input type="text" disabled class="form-control address" id="state" name="state" placeholder="enter address and click submit">
+      </div>
+      <div class="form-group">
+        <label for="county">County</label>
+        <input type="text" disabled class="form-control address" id="county" name="county" placeholder="enter address and click submit">
+      </div>
+       <div class="form-group">
+        <label for="township">Township</label>
+        <input type="text" disabled class="form-control address" id="township" name="township" placeholder="enter address and click submit">
+      </div>
+      <div class="form-group">
+        <label for="zip">Zip Code</label>
+        <input type="text" disabled class="form-control address" id="zip" name="zip" placeholder="enter address and click submit">
+      </div>
+       <div class="form-group">
+        <label for="country">Country</label>
+        <input type="text" disabled class="form-control address" id="country" name="country" placeholder="enter address and click submit">
+      </div>
+  </div>
+</div>
+</div>
 <div class="map"></div>  
  
