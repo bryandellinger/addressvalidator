@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "lite-server",
     "build": "webpack",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "start": "lite-server"
   },
   "repository": {
     "type": "git",
