@@ -4,14 +4,17 @@ import './style.css';
 import validate from 'jquery-validation';
 import * as toastr from 'toastr';
 import 'toastr/build/toastr.css';
+import PageLoader from './pageLoader';
 var geocoder = require('google-geocoder');
 var Promise = require("bluebird");
 var loadGoogleMapsApi = require('load-google-maps-api-2');
-const indexTemplate = require("./index.handlebars");
+//const indexTemplate = require("./index.handlebars");
 
 $(function() {
 
     let googleMaps = null;
+    const pageLoader = new PageLoader();
+    const geo = geocoder({key: 'AIzaSyBYleXzEg8q2YS1-LRghs_RbZ0D7t59mMM'});
 
     loadGoogleMapsApi({
         key: 'AIzaSyBYleXzEg8q2YS1-LRghs_RbZ0D7t59mMM',
@@ -27,42 +30,6 @@ $(function() {
         });
     });
 
-    let _indexTemplate = indexTemplate({
-        addressInputs: [{
-            label: 'Street Number',
-            id: 'streetnumber'
-        }, {
-            label: 'Route',
-            id: 'route'
-        }, {
-            label: 'Locality',
-            id: 'locality'
-        }, {
-            label: 'State',
-            id: 'state'
-        }, {
-            label: 'County',
-            id: 'county'
-        }, {
-            label: 'Township',
-            id: 'township'
-        }, {
-            label: 'Zip Code',
-            id: 'zip'
-        }, {
-            label: 'Country',
-            id: 'country'
-        }]
-    });
-
-    $('body')
-        .append(_indexTemplate);
-
-    const geo = geocoder({
-        key: 'AIzaSyBYleXzEg8q2YS1-LRghs_RbZ0D7t59mMM'
-    });
-    
-    
     function findAddress(address) {
         return new Promise(function(resolve, reject) { //returning promise
             geo.find(address, function(err, res) {
