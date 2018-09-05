@@ -14,7 +14,8 @@ $(function() {
     let googleMaps = null;
 
     loadGoogleMapsApi({
-        key: 'AIzaSyBYleXzEg8q2YS1-LRghs_RbZ0D7t59mMM'
+        key: 'AIzaSyBYleXzEg8q2YS1-LRghs_RbZ0D7t59mMM',
+        libraries: ['places']
     }).then(function(_googleMaps) {
         googleMaps = _googleMaps
         var autocomplete = new googleMaps.places.Autocomplete($("#address")[0]);
