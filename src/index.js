@@ -4,12 +4,27 @@ import './style.css';
 import validate from 'jquery-validation';
 import * as toastr from 'toastr';
 import 'toastr/build/toastr.css';
-const loadGoogleMapsApi = require('load-google-maps-api');
 var geocoder = require('google-geocoder');
 var Promise = require("bluebird");
+var loadGoogleMapsApi = require('load-google-maps-api-2');
 const indexTemplate = require("./index.handlebars");
 
 $(function() {
+
+    let googleMaps = null;
+
+    loadGoogleMapsApi({
+        key: 'AIzaSyBYleXzEg8q2YS1-LRghs_RbZ0D7t59mMM'
+    }).then(function(_googleMaps) {
+        googleMaps = _googleMaps
+        var autocomplete = new googleMaps.places.Autocomplete($("#address")[0]);
+        console.log('here');
+        console.log(autocomplete);
+            googleMaps.event.addListener(autocomplete, 'place_changed', function() {
+                var place = autocomplete.getPlace();
+                console.log(place.address_components);
+        });
+    });
 
     let _indexTemplate = indexTemplate({
         addressInputs: [{
@@ -42,10 +57,11 @@ $(function() {
     $('body')
         .append(_indexTemplate);
 
-    var geo = geocoder({
+    const geo = geocoder({
         key: 'AIzaSyBYleXzEg8q2YS1-LRghs_RbZ0D7t59mMM'
     });
-
+    
+    
     function findAddress(address) {
         return new Promise(function(resolve, reject) { //returning promise
             geo.find(address, function(err, res) {
@@ -59,10 +75,6 @@ $(function() {
     }
 
     function drawMap(lat, lng) {
-        loadGoogleMapsApi({
-                key: 'AIzaSyBYleXzEg8q2YS1-LRghs_RbZ0D7t59mMM'
-            })
-            .then(function(googleMaps) {
                 const map = new googleMaps.Map(document.querySelector('.map'), {
                     center: {
                         lat: lat,
@@ -79,12 +91,8 @@ $(function() {
                     title: $('#name')
                         .val()
                 });
-            })
-            .catch(function(error) {
-                console.error(error)
-            })
     }
-    
+
     $("#form")
         .validate({
             rules: {
